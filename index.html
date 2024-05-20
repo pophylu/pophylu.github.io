@@ -99,18 +99,6 @@
 
 <p>4、编译命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd 到源码路径，执行下面命令</span><br><span class="line">ndk-build NDK_APPLICATION_MK=./Application.mk NDK_PROJECT_PATH=./</span><br></pre></td></tr></table></figure>
-
-
-
-<p>附源码目录如下：</p>
-<p>Android.mk和Application.mk为必须的项目编译文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lpf@lpf-G3-3500:~/newdisk/code/work/test$ ls -all</span><br><span class="line">总用量 24</span><br><span class="line">drwxr-xr-x  3 lpf lpf 4096 1月  19 16:33 .</span><br><span class="line">drwxrwxr-x 11 lpf lpf 4096 1月  19 12:43 ..</span><br><span class="line">-rw-rw-r--  1 lpf lpf  303 1月  19 16:19 Android.mk</span><br><span class="line">-rw-rw-r--  1 lpf lpf  148 1月  19 16:19 Application.mk</span><br><span class="line">-rw-rw-r--  1 lpf lpf  118 1月  18 18:19 main.cpp</span><br><span class="line">-rw-rw-r--  1 lpf lpf    0 1月  19 16:18 pophy.h</span><br></pre></td></tr></table></figure>
-
-<p>Android.mk文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:= $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_MODULE_TAGS := optional</span><br><span class="line"></span><br><span class="line"># 需要编译出的so的模块名</span><br><span class="line">LOCAL_MODULE:= libpophy</span><br><span class="line"></span><br><span class="line"># All of the source files that we will compile.</span><br><span class="line">LOCAL_SRC_FILES:= \</span><br><span class="line">	main.c</span><br><span class="line"></span><br><span class="line">LOCAL_C_INCLUDES += \</span><br><span class="line">    $(LOCAL_PATH)/pophy.h \</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure>
-
-<p>Application.mk文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#根据需要修改 arm64-v8a x86_64 armeabi-v7a x86</span><br><span class="line">APP_ABI := all</span><br><span class="line">APP_OPTIM := release</span><br><span class="line">APP_STL := c++_static</span><br><span class="line">APP_CPPFLAGS := -frtti -fexceptions</span><br><span class="line">APP_MODULES := libpophy</span><br><span class="line">APP_BUILD_SCRIPT := Android.mk</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2024/05/20/%E4%BD%BF%E7%94%A8NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91so/#more">Read More</a>
