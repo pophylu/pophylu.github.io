@@ -6,18 +6,18 @@
   
   <title>ubuntu调整交换空间大小 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1、查看自己机器交换空间大小 1$ free -h   2、查看交换空间文件挂在的对应文件，如下swapfile即挂载的文件 1$ swapon -s   3、停掉挂载的交换空间文件 1$  sudo swapoff &#x2F;swapfile  4、删除交换空间文件 1$ sudo rm &#x2F;swapfile  5、创建新的挂载文件以及设置大小 12$ sudo fallocate -l 20G &#x2F;sw">
+  <meta name="description" content="1、查看自己机器交换空间大小 1$ free -h   2、查看交换空间文件挂在的对应文件，如下swapfile即挂载的文件 1$ swapon -s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu调整交换空间大小">
 <meta property="og:url" content="http://example.com/2024/05/20/ubuntu%E8%B0%83%E6%95%B4%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、查看自己机器交换空间大小 1$ free -h   2、查看交换空间文件挂在的对应文件，如下swapfile即挂载的文件 1$ swapon -s   3、停掉挂载的交换空间文件 1$  sudo swapoff &#x2F;swapfile  4、删除交换空间文件 1$ sudo rm &#x2F;swapfile  5、创建新的挂载文件以及设置大小 12$ sudo fallocate -l 20G &#x2F;sw">
+<meta property="og:description" content="1、查看自己机器交换空间大小 1$ free -h   2、查看交换空间文件挂在的对应文件，如下swapfile即挂载的文件 1$ swapon -s">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEiUSZ5CgEVCfadlILnXGtrIO1tBF2h-HrDHMZPvmY3TbHzfYpFxg2HNXRInDPm9GywpoQCBuMFppxsM4441SlSJQTwQFXZv-75cZI5Y7IJMbG2FpKsyhc5u7WlXI4D98rzqdyjAllJMF2oOb8fK8pwpsgl40MwSnpjYHzug32iOwmMSnC3vv0z3PnEHDfUd=w600-h67">
 <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEjO9UTEx0IhngVXAgljQL9Z9LpAwzGq5Uex78cPJX3avD4InCtb2lUwrOWob_DYxX7pCILWBRFuhiJ7s2b7SCpuYRGvRBSCZroVXfMTsGt6IUJuTH9SCukS87eEw_jUaIklLTr0DjMEN15pa2fQe7uIZCN132CjtvfW9botr2nyo8H7TRBpyWHjuwKarhRW=w602-h60">
 <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhJokxmmWDCiVQMFJHT6pggs01rVHN9AHosA7qrCEvVyff1yzqvnkqxd-ske1SMYFZ759cwAri6J1-hs8mRJ-ezeZKlwwQkqREYUASZkt_6F1THrUYbnCDJI5QQ1c4HH_5GPDNTdqfewxP43a2VH_h3_-JYwj_N25fgnCgAcG4BO-OjkaYhrhiDHmYj0EhN=w613-h159">
 <meta property="article:published_time" content="2024-05-20T01:27:49.444Z">
-<meta property="article:modified_time" content="2024-05-21T01:26:33.622Z">
+<meta property="article:modified_time" content="2024-05-21T02:04:59.196Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEiUSZ5CgEVCfadlILnXGtrIO1tBF2h-HrDHMZPvmY3TbHzfYpFxg2HNXRInDPm9GywpoQCBuMFppxsM4441SlSJQTwQFXZv-75cZI5Y7IJMbG2FpKsyhc5u7WlXI4D98rzqdyjAllJMF2oOb8fK8pwpsgl40MwSnpjYHzug32iOwmMSnC3vv0z3PnEHDfUd=w600-h67">
@@ -105,6 +105,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swapon -s</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://blogger.googleusercontent.com/img/a/AVvXsEjO9UTEx0IhngVXAgljQL9Z9LpAwzGq5Uex78cPJX3avD4InCtb2lUwrOWob_DYxX7pCILWBRFuhiJ7s2b7SCpuYRGvRBSCZroVXfMTsGt6IUJuTH9SCukS87eEw_jUaIklLTr0DjMEN15pa2fQe7uIZCN132CjtvfW9botr2nyo8H7TRBpyWHjuwKarhRW=w602-h60" alt="img"></p>
+<span id="more"></span>
+
 <p>3、停掉挂载的交换空间文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  sudo swapoff /swapfile</span><br></pre></td></tr></table></figure>
 

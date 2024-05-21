@@ -201,26 +201,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swapon -s</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://blogger.googleusercontent.com/img/a/AVvXsEjO9UTEx0IhngVXAgljQL9Z9LpAwzGq5Uex78cPJX3avD4InCtb2lUwrOWob_DYxX7pCILWBRFuhiJ7s2b7SCpuYRGvRBSCZroVXfMTsGt6IUJuTH9SCukS87eEw_jUaIklLTr0DjMEN15pa2fQe7uIZCN132CjtvfW9botr2nyo8H7TRBpyWHjuwKarhRW=w602-h60" alt="img"></p>
-<p>3、停掉挂载的交换空间文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  sudo swapoff /swapfile</span><br></pre></td></tr></table></figure>
-
-<p>4、删除交换空间文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">rm</span> /swapfile</span><br></pre></td></tr></table></figure>
-
-<p>5、创建新的挂载文件以及设置大小</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fallocate -l 20G /swapfile</span><br><span class="line">$ sudo <span class="built_in">chmod</span> 600 /swapfile</span><br></pre></td></tr></table></figure>
-
-<p>6、将文件挂载到交换空间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkswap /swapfile</span><br></pre></td></tr></table></figure>
-
-<p>7、启动交换空间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo swapon /swapfile</span><br></pre></td></tr></table></figure>
-
-<p>8、设置自动挂载swapfile</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/fstab</span><br><span class="line"> <span class="comment">#最后添加</span></span><br><span class="line"> /swapfile                                 none            swap    sw              0       0</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://blogger.googleusercontent.com/img/a/AVvXsEhJokxmmWDCiVQMFJHT6pggs01rVHN9AHosA7qrCEvVyff1yzqvnkqxd-ske1SMYFZ759cwAri6J1-hs8mRJ-ezeZKlwwQkqREYUASZkt_6F1THrUYbnCDJI5QQ1c4HH_5GPDNTdqfewxP43a2VH_h3_-JYwj_N25fgnCgAcG4BO-OjkaYhrhiDHmYj0EhN=w613-h159" alt="img"></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2024/05/20/ubuntu%E8%B0%83%E6%95%B4%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
