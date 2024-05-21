@@ -4,15 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>ubuntu调整交换空间大小 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="1、查看自己机器交换空间大小 1$ free -h   2、查看交换空间文件挂在的对应文件，如下swapfile即挂载的文件 1$ swapon -s   3、停掉挂载的交换空间文件 1$  sudo swapoff &#x2F;swapfile  4、删除交换空间文件 1$ sudo rm &#x2F;swapfile  5、创建新的挂载文件以及设置大小 12$ sudo fallocate -l 20G &#x2F;sw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu调整交换空间大小">
+<meta property="og:url" content="http://example.com/2024/05/20/ubuntu%E8%B0%83%E6%95%B4%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、查看自己机器交换空间大小 1$ free -h   2、查看交换空间文件挂在的对应文件，如下swapfile即挂载的文件 1$ swapon -s   3、停掉挂载的交换空间文件 1$  sudo swapoff &#x2F;swapfile  4、删除交换空间文件 1$ sudo rm &#x2F;swapfile  5、创建新的挂载文件以及设置大小 12$ sudo fallocate -l 20G &#x2F;sw">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEiUSZ5CgEVCfadlILnXGtrIO1tBF2h-HrDHMZPvmY3TbHzfYpFxg2HNXRInDPm9GywpoQCBuMFppxsM4441SlSJQTwQFXZv-75cZI5Y7IJMbG2FpKsyhc5u7WlXI4D98rzqdyjAllJMF2oOb8fK8pwpsgl40MwSnpjYHzug32iOwmMSnC3vv0z3PnEHDfUd=w600-h67">
+<meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEjO9UTEx0IhngVXAgljQL9Z9LpAwzGq5Uex78cPJX3avD4InCtb2lUwrOWob_DYxX7pCILWBRFuhiJ7s2b7SCpuYRGvRBSCZroVXfMTsGt6IUJuTH9SCukS87eEw_jUaIklLTr0DjMEN15pa2fQe7uIZCN132CjtvfW9botr2nyo8H7TRBpyWHjuwKarhRW=w602-h60">
+<meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhJokxmmWDCiVQMFJHT6pggs01rVHN9AHosA7qrCEvVyff1yzqvnkqxd-ske1SMYFZ759cwAri6J1-hs8mRJ-ezeZKlwwQkqREYUASZkt_6F1THrUYbnCDJI5QQ1c4HH_5GPDNTdqfewxP43a2VH_h3_-JYwj_N25fgnCgAcG4BO-OjkaYhrhiDHmYj0EhN=w613-h159">
+<meta property="article:published_time" content="2024-05-20T01:27:49.444Z">
+<meta property="article:modified_time" content="2024-05-21T01:26:33.622Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEiUSZ5CgEVCfadlILnXGtrIO1tBF2h-HrDHMZPvmY3TbHzfYpFxg2HNXRInDPm9GywpoQCBuMFppxsM4441SlSJQTwQFXZv-75cZI5Y7IJMbG2FpKsyhc5u7WlXI4D98rzqdyjAllJMF2oOb8fK8pwpsgl40MwSnpjYHzug32iOwmMSnC3vv0z3PnEHDfUd=w600-h67">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -67,111 +75,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-使用NDK交叉编译so" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/20/%E4%BD%BF%E7%94%A8NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91so/" class="article-date">
-  <time class="dt-published" datetime="2024-05-20T06:03:36.000Z" itemprop="datePublished">2024-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/05/20/%E4%BD%BF%E7%94%A8NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91so/">使用NDK交叉编译so</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>1、下载NDK</p>
-<p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/ndk/downloads?hl=zh-cn">NDK 下载  | Android NDK  | Android Developers (google.cn)</a></p>
-<p>2、解压后的目录&#x2F;home&#x2F;lpf&#x2F;newdisk&#x2F;log&#x2F;android-ndk-r26b (以ubuntu为例)</p>
-<p>3、添加到PATH</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">#把下面两行添加到文件末尾（修改为实际路径）</span><br><span class="line">export NDKROOT=/home/lpf/newdisk/log/android-ndk-r26b</span><br><span class="line">export PATH=$NDKROOT:$PATH</span><br></pre></td></tr></table></figure>
-
-<p>4、编译命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd 到源码路径，执行下面命令</span><br><span class="line">ndk-build NDK_APPLICATION_MK=./Application.mk NDK_PROJECT_PATH=./</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2024/05/20/%E4%BD%BF%E7%94%A8NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91so/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/20/%E4%BD%BF%E7%94%A8NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91so/" data-id="clwekazad0000o8gp610vaiek" data-title="使用NDK交叉编译so" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-利用Github搭建自己的个人博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/20/%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time class="dt-published" datetime="2024-05-20T05:58:44.000Z" itemprop="datePublished">2024-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/05/20/%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">利用Github搭建自己的个人博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>1、安装git</p>
-<p>官方地址：<a href="https://link.zhihu.com/?target=https://git-scm.com/">https://git-scm.com/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<p>2、安装node.js</p>
-<p>官方地址：<a href="https://link.zhihu.com/?target=https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<p>3、安装Hexo</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2024/05/20/%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/20/%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-id="clwekazam0001o8gp8bpc6wt6" data-title="利用Github搭建自己的个人博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ubuntu调整交换空间大小" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-ubuntu调整交换空间大小" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/20/ubuntu%E8%B0%83%E6%95%B4%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/" class="article-date">
   <time class="dt-published" datetime="2024-05-20T01:27:49.444Z" itemprop="datePublished">2024-05-20</time>
@@ -184,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/05/20/ubuntu%E8%B0%83%E6%95%B4%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/">ubuntu调整交换空间大小</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      ubuntu调整交换空间大小
     </h1>
   
 
@@ -231,11 +135,23 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/20/%E5%88%A9%E7%94%A8Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          利用Github搭建自己的个人博客
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 
 </section>
